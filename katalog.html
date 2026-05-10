@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Lengkap - IM Parfum</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Katalog - IM Parfum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav class="navbar">
         <div class="navbar-content">
             <div class="logo-lingkaran">IM</div>
@@ -17,33 +16,20 @@
     </nav>
 
     <div class="isi-halaman">
-        <header>
-            <h1 class="gold-text">Our Collections</h1>
-            <p class="sub-text">Pilih aroma yang sesuai karaktermu</p>
-            <div class="garis-pembatas"></div>
-        </header>
-
+        <h1 class="gold-text">Our Collections</h1>
         <div class="tab-container">
             <button class="tab-btn active" onclick="filterKatalog('Semua')">Semua</button>
             <button class="tab-btn" onclick="filterKatalog('Pria')">Pria</button>
             <button class="tab-btn" onclick="filterKatalog('Wanita')">Wanita</button>
-            <button class="tab-btn" onclick="filterKatalog('Unisex')">Unisex</button>
         </div>
 
-        <section class="grid-lengkap" id="katalog-semua">
-            </section>
+        <section class="grid-lengkap" id="katalog-container"></section>
 
-        <div class="footer-cta">
-            <div class="cta-content">
-                <h2 class="gold-text">Find Your Signature Scent</h2>
-                <p>Konsultasikan aroma yang paling pas dengan karaktermu bersama kami secara gratis.</p>
-                <a href="https://wa.me/6287749397910" class="btn-premium-cta">
-                    <span>Tanya Admin Sekarang</span>
-                </a>
-            </div>
-        </div>
+        <footer class="footer-cta">
+            <h2 class="gold-text">Find Your Scent</h2>
+            <a href="https://wa.me/6287749397910" class="btn-premium-cta">Tanya Admin Sekarang</a>
+        </footer>
     </div>
-
-    <script src="Katalog.js"></script>
+    <script src="katalog.js"></script>
 </body>
 </html>
