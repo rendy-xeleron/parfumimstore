@@ -54,9 +54,18 @@ body {
 }
 
 
-.wa-float img {
-    width: 35px;
+.wa-float {
+    text-decoration: none;
+    color: transparent; /* Menghilangkan teks jika gambar gagal muat */
+    display: flex;
+    align-items: center;
 }
+
+.wa-float img {
+    width: 35px; /* Ukuran ikon WA agar pas */
+    height: auto;
+}
+
 
 /* Konten di bawah Navbar */
 .isi-halaman {
