@@ -30,7 +30,7 @@ function renderProduk(data) {
     if (!container) return;
     container.innerHTML = "";
     data.forEach(p => {
-        const pesan = `Halo Admin, saya ingin memesan parfum ${p.nama}`;
+        const pesan = `Halo, saya ingin memesan parfum ${p.nama}`;
         const linkWA = `https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(pesan)}`;
         container.innerHTML += `
             <div class="kartu-parfum">
