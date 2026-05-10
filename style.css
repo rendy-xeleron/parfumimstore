@@ -7,11 +7,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center; /* Judul-judul tetap di tengah */
+    text-align: center;
 }
 
 /* =========================================
-   2. NAVBAR (LOGO & TOMBOL KEMBALI)
+   2. NAVBAR (LOGO & TOMBOL)
    ========================================= */
 .navbar {
     position: fixed;
@@ -46,92 +46,42 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9rem;
     text-decoration: none;
 }
 
 .btn-kembali {
     color: #d4af37;
     text-decoration: none;
-    font-weight: bold;
     font-size: 0.75rem;
     border: 1px solid #d4af37;
     padding: 6px 12px;
     border-radius: 20px;
 }
 
-.wa-float img {
-    width: 35px;
-    height: auto;
-}
-
 /* =========================================
-   3. HEADER & FILTER TABS
+   3. GRID KATALOG (PERBAIKAN Tampilan)
    ========================================= */
 .isi-halaman {
-    padding-top: 100px;
+    padding-top: 90px;
 }
 
-.gold-text {
-    color: #d4af37;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.sub-text {
-    font-size: 0.85rem;
-    color: #888;
-}
-
-.garis-pembatas {
-    width: 60px;
-    height: 2px;
-    background: #443c2b;
-    margin: 20px auto;
-}
-
-.tab-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 30px;
-    padding: 0 10px;
-}
-
-.tab-btn {
-    background: #222;
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    cursor: pointer;
-}
-
-.tab-btn.active {
-    background: #d4af37;
-    color: #000;
-}
-
-/* =========================================
-   4. GRID KATALOG (2 KOLOM)
-   ========================================= */
 .grid-lengkap {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Membagi dua */
+    grid-template-columns: 1fr 1fr; /* Membagi layar jadi 2 kolom di HP */
     gap: 15px;
-    padding: 0 15px 50px;
+    padding: 15px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .kartu-parfum {
     background-color: #0d0d0d;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #222;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    text-align: left; /* Teks di dalam kartu rata kiri */
+    text-align: left; /* Teks rata kiri di dalam kotak */
 }
 
 .gambar-produk {
@@ -140,7 +90,6 @@ body {
     object-fit: cover;
 }
 
-/* Wadah teks di dalam kartu */
 .info-produk {
     padding: 12px;
 }
@@ -149,38 +98,56 @@ body {
     font-family: 'Cormorant Garamond', serif;
     color: #d4af37;
     font-size: 1.1rem;
-    margin: 0 0 5px;
+    margin: 0 0 5px 0;
 }
 
 .deskripsi {
-    font-size: 0.75rem;
-    color: #ffffff; /* Memaksa warna putih */
+    font-size: 0.7rem;
+    color: #ffffff !important; /* Putih terang agar terbaca */
     line-height: 1.3;
     margin-bottom: 10px;
-    opacity: 0.9;
 }
 
 .harga {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #d4af37;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
+/* Tombol Pesan agar tidak biru standar */
 .link-pesan {
-    color: #58a6ff;
+    color: #fdd835;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #fdd835;
+    display: inline-block;
 }
 
 /* =========================================
-   5. FOOTER CTA
+   4. TAB FILTER & FOOTER
    ========================================= */
-.footer-cta {
-    padding: 50px 20px;
-    background-color: #000;
-    border-top: 1px solid #222;
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    background: #222;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.tab-btn.active {
+    background: #d4af37;
+    color: #000;
 }
 
 .btn-premium-cta {
@@ -191,6 +158,4 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.8rem;
-    margin-top: 15px;
 }
