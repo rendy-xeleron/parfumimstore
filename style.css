@@ -8,7 +8,6 @@ body {
     text-align: center;
 }
 
-/* Navbar Terkunci di Atas */
 .navbar {
     position: fixed;
     top: 0;
@@ -17,13 +16,17 @@ body {
     height: 65px;
     background-color: #000000;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: center;
-    padding: 0 25px;
-    box-sizing: border-box;
     z-index: 9999;
 }
-
+.navbar-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+}
 .logo-lingkaran {
     width: 40px;
     height: 40px;
@@ -105,12 +108,22 @@ header h1.gold-text {
 
 .grid-katalog {
     display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 0 25px 30px;
-    scroll-snap-type: x mandatory;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 25px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .grid-katalog {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory;
+    }
+}
 .grid-katalog::-webkit-scrollbar {
     display: none;
 }
