@@ -12,6 +12,7 @@ body {
     text-align: center;
 }
 
+/* Navbar Terkunci di Atas */
 .navbar {
     position: fixed;
     top: 0;
@@ -46,10 +47,12 @@ body {
     width: 35px;
 }
 
+/* Konten di bawah Navbar */
 .isi-halaman {
     padding-top: 80px;
 }
 
+/* Hero Section */
 .gambar-hero {
     width: 85%;
     max-width: 350px;
@@ -66,14 +69,12 @@ header h1.gold-text {
     font-size: 2.2rem;
     margin: 15px 0 5px;
 }
-
 .harga-utama {
     font-size: 1.1rem;
     font-weight: 300;
     margin: 15px 0;
     color: #ffffff;
 }
-
 .harga-utama .gold-text {
     display: block;
     font-size: 3rem;
@@ -94,6 +95,7 @@ header h1.gold-text {
     margin: 30px auto;
 }
 
+/* Best Sellers */
 .title-section {
     color: #d4af37;
     font-family: 'Cormorant Garamond', serif;
@@ -104,7 +106,6 @@ header h1.gold-text {
     padding-bottom: 5px;
 }
 
-/* Base Best Sellers Scroll for Mobile */
 .grid-katalog {
     display: flex;
     overflow-x: auto;
@@ -117,6 +118,7 @@ header h1.gold-text {
     display: none;
 }
 
+/* Kartu Produk Kapsul */
 .kartu-parfum {
     min-width: 240px;
     background-color: #0d0d0d;
@@ -124,9 +126,6 @@ header h1.gold-text {
     padding-bottom: 25px;
     border: 1px solid #222;
     scroll-snap-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .gambar-produk {
@@ -158,7 +157,7 @@ header h1.gold-text {
     margin: 15px 0;
 }
 
-/* Button Pesan Sekarang */
+/* Tombol WhatsApp (Gradasi) */
 .btn-wa {
     display: inline-block;
     background: linear-gradient(180deg, #fff59d 0%, #fdd835 100%);
@@ -168,10 +167,9 @@ header h1.gold-text {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
-    width: fit-content;
-    margin: 0 auto;
 }
 
+/* Tombol Katalog Bawah */
 .btn-katalog {
     display: inline-block;
     background: linear-gradient(180deg, #fffde7 0%, #fdd835 100%);
@@ -184,6 +182,19 @@ header h1.gold-text {
     text-decoration: none;
     color: #000;
     box-shadow: 0 4px 20px rgba(253, 216, 53, 0.3);
+    cursor: pointer;
+}
+
+/* --- Tambahan Khusus Halaman Katalog --- */
+.btn-kembali {
+    display: inline-block;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: 1px solid #d4af37;
+    padding: 5px 12px;
+    border-radius: 15px;
 }
 
 .tab-container {
@@ -203,11 +214,14 @@ header h1.gold-text {
     border-radius: 20px;
     font-size: 0.75rem;
     cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .tab-btn.active {
     background: #d4af37;
     color: #000;
+    font-weight: bold;
 }
 
 .grid-lengkap {
@@ -220,6 +234,7 @@ header h1.gold-text {
 .grid-lengkap .kartu-parfum {
     min-width: unset;
     border-radius: 30px 30px 20px 20px;
+    padding-bottom: 15px;
 }
 
 .grid-lengkap .gambar-produk {
@@ -227,6 +242,7 @@ header h1.gold-text {
     border-radius: 30px 30px 0 0;
 }
 
+/* Footer & CTA */
 .footer-cta {
     margin-top: 80px;
     padding: 60px 20px;
@@ -234,11 +250,24 @@ header h1.gold-text {
     border-top: 1px solid #333;
 }
 
+.btn-premium-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #f2d47e 50%, #d4af37 100%);
+    color: #000;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
 /* ============================================================
-   2. KODE RESPONSIVE (DESKTOP & TABLET FIX)
+   2. KODE RESPONSIVE (DISATUKAN UNTUK DESKTOP & TABLET)
    ============================================================ */
 
 @media screen and (min-width: 768px) {
+    /* Merapikan Lebar Konten Utama */
     .isi-halaman, .footer-cta, .footer-katalog {
         max-width: 1100px;
         margin: 0 auto;
@@ -248,51 +277,53 @@ header h1.gold-text {
         padding: 0 10%;
     }
 
+    /* Hero Section Desktop */
     .gambar-hero {
         max-width: 450px;
         width: 50%;
     }
-
     header h1.gold-text {
         font-size: 3.5rem;
     }
 
-    /* BEST SELLERS FIX: Rata Tengah */
+    /* BEST SELLERS: DIKETENGAHKAN */
     .grid-katalog {
         display: grid !important; 
-        grid-template-columns: repeat(auto-fit, 280px);
-        justify-content: center; 
+        grid-template-columns: repeat(auto-fit, 280px); /* Ukuran kartu tetap */
+        justify-content: center; /* MEMBUAT KARTU KE TENGAH */
         gap: 30px;
         overflow-x: visible;
         padding: 40px 20px;
     }
 
-    /* TOMBOL LIHAT KATALOG: Biar gak mepet */
+    .kartu-parfum {
+        min-width: unset;
+    }
+
+    /* TOMBOL LIHAT KATALOG: Rapi & Berjarak */
     .btn-katalog {
         margin-top: 60px;    
         margin-bottom: 120px; 
         padding: 18px 70px;
+        transition: 0.3s;
+    }
+    .btn-katalog:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(253, 216, 53, 0.5);
     }
 
-    /* KATALOG LENGKAP FIX: 4 Kolom & Tombol Pesan Rapi */
+    /* KATALOG LENGKAP: 4 Kolom di Tablet/Laptop */
     .grid-lengkap {
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;
         padding: 0 40px;
     }
-
     .grid-lengkap .gambar-produk {
         height: 250px;
     }
-
-    /* Tombol WA di Desktop: Gak melar mengikuti kartu */
-    .btn-wa {
-        max-width: 180px;
-        width: 100%;
-        margin-top: auto; /* Jaga tombol tetap di bawah kartu */
-    }
 }
 
+/* Monitor Desktop Sangat Lebar */
 @media screen and (min-width: 1200px) {
     .grid-lengkap {
         grid-template-columns: repeat(5, 1fr);
