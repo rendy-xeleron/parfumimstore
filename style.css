@@ -123,9 +123,6 @@ header h1.gold-text {
     padding-bottom: 25px;
     border: 1px solid #222;
     scroll-snap-align: center;
-    overflow: hidden;
-    display: flex
-    flex-direction: column;
 }
 
 .gambar-produk {
