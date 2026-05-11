@@ -363,3 +363,51 @@ header h1.gold-text {
         grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk katalog lengkap */
     }
 }
+/* --- RESPONSIVE LAYOUT UNTUK TABLET & DESKTOP --- */
+
+/* Layar Tablet & Laptop Kecil (min-width: 768px) */
+@media screen and (min-width: 768px) {
+    /* Membatasi konten agar tidak terlalu melebar ke samping */
+    .isi-halaman, .footer-cta, .footer-katalog {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Hero section lebih besar di desktop */
+    .gambar-hero {
+        max-width: 500px;
+        width: 60%;
+    }
+
+    /* Mengubah grid katalog lengkap dari 2 kolom menjadi 3 kolom */
+    .grid-lengkap {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        padding: 0 40px;
+    }
+
+    /* Membuat scroll horizontal di Best Seller menjadi grid baris */
+    .grid-katalog {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+    }
+}
+
+/* Layar Desktop Besar (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    /* Grid katalog lengkap menjadi 4 atau 5 kolom */
+    .grid-lengkap {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-katalog {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Penyesuaian tinggi gambar agar terlihat mewah di layar besar */
+    .grid-lengkap .gambar-produk {
+        height: 280px;
+    }
+}
