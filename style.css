@@ -8,7 +8,7 @@ body {
     text-align: center;
 }
 
-/* Navbar Terkunci di Atas */
+/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -34,12 +34,10 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1rem;
     text-decoration: none;
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* Konten di bawah Navbar */
 .isi-halaman {
     padding-top: 80px;
 }
@@ -49,16 +47,11 @@ body {
     background-color: #0d0d0d;
     border-radius: 30px;
     border: 1px solid #222;
-    overflow: hidden; /* Memotong gambar agar ikut melengkung sesuai screenshot */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     text-align: center;
     transition: transform 0.3s ease;
-}
-
-.kartu-parfum:hover {
-    transform: translateY(-5px);
-    border-color: #d4af37;
 }
 
 .gambar-produk {
@@ -102,8 +95,6 @@ body {
     padding: 10px 20px 30px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    text-align: center;
 }
 
 .grid-katalog::-webkit-scrollbar {
@@ -111,16 +102,15 @@ body {
 }
 
 .grid-katalog .kartu-parfum {
-    min-width: 80%; /* Agar slider pas di layar HP */
+    min-width: 80%; /* HP Style: Kartu lebar agar mudah di-swipe */
     max-width: 80%;
     scroll-snap-align: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* WAJIB agar tidak gepeng */
 }
 
 /* --- Grid Katalog (Halaman Katalog Lengkap) --- */
 .grid-lengkap {
     display: grid;
-    /* Otomatis menjadi banyak kolom di laptop agar tidak kosong */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
     padding: 20px;
@@ -128,7 +118,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- Tombol & Elemen Lainnya --- */
+/* Tombol */
 .btn-wa {
     display: inline-block;
     background: linear-gradient(180deg, #fff59d 0%, #fdd835 100%);
@@ -141,40 +131,7 @@ body {
     margin-bottom: 20px;
 }
 
-.tab-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px 0 30px;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    background: #1a1a1a;
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    cursor: pointer;
-}
-
-.tab-btn.active {
-    background: #d4af37;
-    color: #000;
-}
-
-.btn-kembali {
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border: 1px solid #d4af37;
-    padding: 5px 12px;
-    border-radius: 15px;
-}
-
-/* --- Penyesuaian khusus untuk Laptop (Layar Lebar) --- */
+/* --- RESPONSIVE LAPTOP (Layar Lebar) --- */
 @media (min-width: 1024px) {
     .grid-katalog .kartu-parfum {
         min-width: 280px; 
@@ -182,16 +139,16 @@ body {
     }
 }
 
-/* --- RESPONSIVE UNTUK HP (Layar di bawah 600px) --- */
+/* --- RESPONSIVE HP (Layar Kecil) --- */
 @media (max-width: 600px) {
     .grid-lengkap {
-        grid-template-columns: 1fr 1fr; /* Tetap 2 kolom di HP */
-        gap: 12px;
-        padding: 15px;
+        grid-template-columns: 1fr 1fr; /* 2 Kolom di katalog HP */
+        gap: 10px;
+        padding: 10px;
     }
     
-     .gambar-produk {
-        height: 180px; /* Gambar lebih pendek di HP agar tidak terlalu panjang */
+    .gambar-produk {
+        height: 180px;
     }
 
     .nama-produk {
