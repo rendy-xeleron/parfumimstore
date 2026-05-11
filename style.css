@@ -316,3 +316,19 @@ header h1.gold-text {
         grid-template-columns: repeat(5, 1fr);
     }
 }
+
+@media screen and (min-width: 768px) {
+    /* ... kode lainnya ... */
+
+    .btn-katalog {
+        margin-top: 50px;    /* Memberi jarak dari bagian Best Seller di atasnya */
+        margin-bottom: 100px; /* Memberi jarak dari bagian footer di bawahnya */
+        padding: 18px 60px;   /* Membuat tombol sedikit lebih besar agar proporsional */
+        transition: 0.3s;
+    }
+
+    .btn-katalog:hover {
+        transform: translateY(-5px); /* Efek melayang saat kursor di atas tombol */
+        box-shadow: 0 8px 25px rgba(253, 216, 53, 0.5);
+    }
+}
