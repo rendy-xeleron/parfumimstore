@@ -3,7 +3,7 @@ const nomorWA = "6287749397910";
 const koleksiSemua = [
     { nama: "SL Black", kategori: "Wanita", harga: "Rp. 120.000", gambar: "img/SL Black.png", deskripsi: "Manis floral elegan dengan kesan hangat. Cocok untuk malam & acara spesial" },
     { nama: "Lo Vely", kategori: "Wanita", harga: "Rp. 100.000", gambar: "img/Lo Vely.png", deskripsi: "Floral lembut dan feminin, fresh dan ringan. Cocok untuk daily & wangi soft" },
-    { nama: "Chiffon Pink", kategori: "Wanita", harga: "Rp. 100.000", gambar: "img/Chiffon Pink.png", deskripsi: "Aroma manis seperti kue, girly dan lembut. Cocok untuk penyuka wangi manis" },
+    { nama: "Chiffon Pink", kategori: "Wanita", harga: "Rp. 100.000", gambar: "img/Chiffon Pink.png", deskripsi: "Aroma manis seperti kue, girly dan lembut. Cocok untuk penyuka aroma manis" },
     { nama: "Berry for Her", kategori: "Wanita", harga: "Rp. 110.000", gambar: "img/Berry.png", deskripsi: "Berry segar yang agak strong dan standout. Cocok untuk kamu yang mau tampil beda" },
     { nama: "Swift Rose", kategori: "Wanita", harga: "Rp. 110.000", gambar: "img/Swift Rose.png", deskripsi: "Aroma bunga yang cukup strong dan elegan. Cocok untuk wanita dewasa" },
     { nama: "Scandal", kategori: "Wanita", harga: "Rp. 100.000", gambar: "img/Scandal.png", deskripsi: "Manis creamy yang kuat dan menggoda. Cocok untuk kamu yang suka wangi bold" },
