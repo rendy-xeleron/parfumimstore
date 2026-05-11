@@ -332,3 +332,16 @@ header h1.gold-text {
         box-shadow: 0 8px 25px rgba(253, 216, 53, 0.5);
     }
 }
+
+/* Perbaikan khusus untuk mengetengahkan Best Sellers di layar lebar */
+@media screen and (min-width: 768px) {
+    .grid-katalog {
+        justify-content: center; /* Mengetengahkan item grid */
+        overflow-x: visible;     /* Mematikan fungsi scroll samping */
+        padding: 0 20px 40px;    /* Merapikan jarak padding */
+    }
+
+    .title-section {
+        margin-bottom: 50px;     /* Memberi jarak lebih elegan dari judul ke produk */
+    }
+}
