@@ -411,3 +411,60 @@ header h1.gold-text {
         height: 280px;
     }
 }
+
+/* --- RESPONSIVE ADJUSTMENTS (TABLET & DESKTOP) --- */
+
+@media screen and (min-width: 768px) {
+    /* 1. Membatasi lebar konten agar enak dilihat di mata */
+    .isi-halaman, .footer-cta, .footer-katalog {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 2. Navbar: Logo & WA tidak terlalu mepet ke ujung layar */
+    .navbar {
+        padding: 0 10%;
+    }
+
+    /* 3. Hero Section: Gambar lebih besar & teks lebih proporsional */
+    .gambar-hero {
+        max-width: 450px;
+        width: 50%;
+    }
+    header h1.gold-text {
+        font-size: 3.5rem;
+    }
+
+    /* 4. Best Seller: Dari geser (scroll) jadi baris grid */
+    .grid-katalog {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        gap: 30px;
+        padding: 0 40px;
+    }
+    .kartu-parfum {
+        min-width: unset;
+    }
+
+    /* 5. Katalog Lengkap: Dari 2 kolom menjadi 4 kolom */
+    .grid-lengkap {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        padding: 0 40px;
+    }
+    .grid-lengkap .gambar-produk {
+        height: 250px; /* Lebih tinggi agar detail produk terlihat */
+    }
+}
+
+/* Untuk Monitor Besar (Desktop) */
+@media screen and (min-width: 1200px) {
+    .grid-lengkap {
+        grid-template-columns: repeat(5, 1fr); /* 5 kolom agar hemat ruang */
+    }
+    .grid-katalog {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
