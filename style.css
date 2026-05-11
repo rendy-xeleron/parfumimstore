@@ -1,3 +1,7 @@
+/* ============================================================
+   1. KODE ASLI (MOBILE FIRST)
+   ============================================================ */
+
 /* Reset Dasar */
 body {
     background-color: #1a1917;
@@ -8,7 +12,6 @@ body {
     text-align: center;
 }
 
-/* Navbar Terkunci di Atas */
 .navbar {
     position: fixed;
     top: 0;
@@ -43,12 +46,10 @@ body {
     width: 35px;
 }
 
-/* Konten di bawah Navbar */
 .isi-halaman {
     padding-top: 80px;
 }
 
-/* Hero Section */
 .gambar-hero {
     width: 85%;
     max-width: 350px;
@@ -65,12 +66,14 @@ header h1.gold-text {
     font-size: 2.2rem;
     margin: 15px 0 5px;
 }
+
 .harga-utama {
     font-size: 1.1rem;
     font-weight: 300;
     margin: 15px 0;
     color: #ffffff;
 }
+
 .harga-utama .gold-text {
     display: block;
     font-size: 3rem;
@@ -78,7 +81,6 @@ header h1.gold-text {
     margin-top: 5px;
     color: #d4af37;
 }
-
 
 .sub-text {
     font-size: 0.85rem;
@@ -92,7 +94,6 @@ header h1.gold-text {
     margin: 30px auto;
 }
 
-/* Best Sellers */
 .title-section {
     color: #d4af37;
     font-family: 'Cormorant Garamond', serif;
@@ -115,7 +116,6 @@ header h1.gold-text {
     display: none;
 }
 
-/* Kartu Produk Kapsul */
 .kartu-parfum {
     min-width: 240px;
     background-color: #0d0d0d;
@@ -140,10 +140,10 @@ header h1.gold-text {
 }
 
 .deskripsi {
-    font-size: 0.7rem;
-    color: #ffffff;
+    font-size: 0.75rem;
+    color: #bbb;
     padding: 0 20px;
-    line-height: 1.5;
+    line-height: 1.3;
     min-height: 45px;
 }
 
@@ -154,7 +154,6 @@ header h1.gold-text {
     margin: 15px 0;
 }
 
-/* Tombol WhatsApp (Gradasi) */
 .btn-wa {
     display: inline-block;
     background: linear-gradient(180deg, #fff59d 0%, #fdd835 100%);
@@ -166,7 +165,6 @@ header h1.gold-text {
     font-weight: bold;
 }
 
-/* Tombol Katalog Bawah */
 .btn-katalog {
     background: linear-gradient(180deg, #fffde7 0%, #fdd835 100%);
     border: none;
@@ -176,8 +174,8 @@ header h1.gold-text {
     font-size: 1rem;
     margin-bottom: 50px;
     box-shadow: 0 4px 20px rgba(253, 216, 53, 0.3);
+    cursor: pointer;
 }
-/* --- Tambahan Khusus Halaman Katalog --- */
 
 .btn-kembali {
     color: #d4af37;
@@ -199,9 +197,9 @@ header h1.gold-text {
 }
 
 .tab-btn {
-    background: transparent;
-    border: 1px solid #443c2b;
-    color: #888;
+    background: #1a1a1a;
+    border: 1px solid #d4af37;
+    color: #d4af37;
     padding: 8px 18px;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -213,18 +211,16 @@ header h1.gold-text {
 .tab-btn.active {
     background: #d4af37;
     color: #000;
-    border-color: #d4af37;
     font-weight: bold;
 }
 
 .grid-lengkap {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Membagi 2 kolom agar pendek */
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding: 0 15px;
 }
 
-/* Penyesuaian Kartu di Katalog agar pas 2 kolom */
 .grid-lengkap .kartu-parfum {
     min-width: unset;
     border-radius: 30px 30px 20px 20px;
@@ -232,67 +228,15 @@ header h1.gold-text {
 }
 
 .grid-lengkap .gambar-produk {
-    height: 180px; /* Lebih pendek supaya tidak scroll kejauhan */
+    height: 180px;
     border-radius: 30px 30px 0 0;
 }
 
-.grid-lengkap .nama-produk {
-    font-size: 1.1rem;
-    margin: 10px 0 5px;
-}
-
-.grid-lengkap .harga {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.footer-katalog {
-    margin: 60px 0 40px;
-    padding: 20px;
-    border-top: 1px solid #333;
-}
-.tab-btn {
-    background: #1a1a1a; /* Hitam gelap */
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.tab-btn.active {
-    background: #d4af37; /* Emas saat aktif */
-    color: #000;
-}
-
-.deskripsi {
-    font-size: 0.75rem;
-    color: #bbb;
-    padding: 0 10px;
-    margin: 8px 0;
-    line-height: 1.3;
-}
 .footer-cta {
     margin-top: 80px;
     padding: 60px 20px;
     background: linear-gradient(to top, #0a0a0a, #151515);
     border-top: 1px solid #333;
-    text-align: center;
-}
-
-.cta-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-.cta-content p {
-    color: #888;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .btn-premium-cta {
@@ -305,138 +249,32 @@ header h1.gold-text {
     border-radius: 50px;
     text-transform: uppercase;
     font-size: 0.8rem;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-    transition: 0.3s;
 }
 
-.btn-premium-cta:active {
-    transform: scale(0.95);
-    box-shadow: 0 5px 10px rgba(212, 175, 55, 0.1);
-}
-/* --- Perbaikan untuk Layar Besar (Tablet & Desktop) --- */
+/* ============================================================
+   2. KODE RESPONSIVE (TABLET & DESKTOP)
+   ============================================================ */
+
 @media screen and (min-width: 768px) {
-    /* 1. Membatasi lebar konten agar tidak melar ke pinggir layar */
-    .isi-halaman, .footer-cta {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* 2. Hero Section: Gambar lebih proporsional */
-    .gambar-hero {
-        max-width: 500px; /* Lebih besar dari mobile tapi tetap terkontrol */
-        width: 50%;
-    }
-
-    /* 3. Katalog Utama: Dari geser (scroll-x) menjadi baris */
-    .grid-katalog {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom di tablet */
-        overflow-x: visible;
-        padding: 0 50px;
-    }
-
-    /* 4. Halaman Katalog: Dari 2 kolom menjadi 4 kolom */
-    .grid-lengkap {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolom di layar besar */
-        gap: 25px;
-        padding: 0 50px;
-    }
-
-    /* 5. Penyesuaian Kartu Parfum agar seragam */
-    .grid-lengkap .gambar-produk {
-        height: 250px; /* Lebih tinggi agar terlihat premium di desktop */
-    }
-
-    .kartu-parfum {
-        min-width: unset; /* Menghapus batasan lebar mobile */
-    }
-}
-
-/* Khusus Monitor Desktop Sangat Lebar */
-@media screen and (min-width: 1200px) {
-    .grid-katalog {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk best seller */
-    }
-    .grid-lengkap {
-        grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk katalog lengkap */
-    }
-}
-/* --- RESPONSIVE LAYOUT UNTUK TABLET & DESKTOP --- */
-
-/* Layar Tablet & Laptop Kecil (min-width: 768px) */
-@media screen and (min-width: 768px) {
-    /* Membatasi konten agar tidak terlalu melebar ke samping */
     .isi-halaman, .footer-cta, .footer-katalog {
         max-width: 1100px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
 
-    /* Hero section lebih besar di desktop */
-    .gambar-hero {
-        max-width: 500px;
-        width: 60%;
-    }
-
-    /* Mengubah grid katalog lengkap dari 2 kolom menjadi 3 kolom */
-    .grid-lengkap {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        padding: 0 40px;
-    }
-
-    /* Membuat scroll horizontal di Best Seller menjadi grid baris */
-    .grid-katalog {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        overflow-x: visible;
-    }
-}
-
-/* Layar Desktop Besar (min-width: 1024px) */
-@media screen and (min-width: 1024px) {
-    /* Grid katalog lengkap menjadi 4 atau 5 kolom */
-    .grid-lengkap {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid-katalog {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    /* Penyesuaian tinggi gambar agar terlihat mewah di layar besar */
-    .grid-lengkap .gambar-produk {
-        height: 280px;
-    }
-}
-
-/* --- RESPONSIVE ADJUSTMENTS (TABLET & DESKTOP) --- */
-
-@media screen and (min-width: 768px) {
-    /* 1. Membatasi lebar konten agar enak dilihat di mata */
-    .isi-halaman, .footer-cta, .footer-katalog {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* 2. Navbar: Logo & WA tidak terlalu mepet ke ujung layar */
     .navbar {
         padding: 0 10%;
     }
 
-    /* 3. Hero Section: Gambar lebih besar & teks lebih proporsional */
     .gambar-hero {
         max-width: 450px;
         width: 50%;
     }
+
     header h1.gold-text {
         font-size: 3.5rem;
     }
 
-    /* 4. Best Seller: Dari geser (scroll) jadi baris grid */
+    /* Mengubah scroll Best Seller menjadi Grid 3 Kolom */
     .grid-katalog {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -444,27 +282,37 @@ header h1.gold-text {
         gap: 30px;
         padding: 0 40px;
     }
+
     .kartu-parfum {
         min-width: unset;
     }
 
-    /* 5. Katalog Lengkap: Dari 2 kolom menjadi 4 kolom */
+    /* Katalog Lengkap menjadi 3 Kolom di Tablet */
     .grid-lengkap {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         padding: 0 40px;
     }
+
     .grid-lengkap .gambar-produk {
-        height: 250px; /* Lebih tinggi agar detail produk terlihat */
+        height: 250px;
     }
 }
 
-/* Untuk Monitor Besar (Desktop) */
-@media screen and (min-width: 1200px) {
-    .grid-lengkap {
-        grid-template-columns: repeat(5, 1fr); /* 5 kolom agar hemat ruang */
-    }
+@media screen and (min-width: 1024px) {
+    /* Menambah kolom di Desktop Laptop */
     .grid-katalog {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-lengkap {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    /* Untuk monitor sangat lebar */
+    .grid-lengkap {
+        grid-template-columns: repeat(5, 1fr);
     }
 }
