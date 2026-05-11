@@ -8,7 +8,7 @@ body {
     text-align: center;
 }
 
-/* Navbar */
+/* Navbar Terkunci di Atas */
 .navbar {
     position: fixed;
     top: 0;
@@ -34,124 +34,283 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    text-decoration: none;
+    font-size: 1rem;
+    text-decoration: underline;
     font-family: 'Cormorant Garamond', serif;
 }
 
+.wa-float img {
+    width: 35px;
+}
+
+/* Konten di bawah Navbar */
 .isi-halaman {
     padding-top: 80px;
 }
 
-/* --- Pengaturan Kartu Umum --- */
-.kartu-parfum {
-    background-color: #0d0d0d;
-    border-radius: 30px;
-    border: 1px solid #222;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    transition: transform 0.3s ease;
+/* Hero Section */
+.gambar-hero {
+    width: 85%;
+    max-width: 350px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
-.gambar-produk {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.nama-produk {
-    font-family: 'Cormorant Garamond', serif;
+.gold-text {
     color: #d4af37;
-    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+header h1.gold-text {
+    font-size: 2.2rem;
     margin: 15px 0 5px;
 }
-
-.deskripsi {
-    font-size: 0.75rem;
-    color: #bbb;
-    padding: 0 15px;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.harga-utama {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 15px 0;
+    color: #ffffff;
 }
-
-.harga {
-    font-size: 1.2rem;
-    color: #d4af37;
+.harga-utama .gold-text {
+    display: block;
+    font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    color: #d4af37;
 }
 
-/* --- Slider Best Seller (Halaman Depan) --- */
+
+.sub-text {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.garis-pembatas {
+    width: 100px;
+    height: 2px;
+    background: #443c2b;
+    margin: 30px auto;
+}
+
+/* Best Sellers */
+.title-section {
+    color: #d4af37;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    display: inline-block;
+    border-bottom: 2px solid #d4af37;
+    margin-bottom: 40px;
+    padding-bottom: 5px;
+}
+
 .grid-katalog {
-    display: flex; 
+    display: flex;
     overflow-x: auto;
-    gap: 15px;
-    padding: 10px 20px 30px;
+    gap: 20px;
+    padding: 0 25px 30px;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
 }
 
 .grid-katalog::-webkit-scrollbar {
     display: none;
 }
 
-.grid-katalog .kartu-parfum {
-    min-width: 80%; /* HP Style: Kartu lebar agar mudah di-swipe */
-    max-width: 80%;
+/* Kartu Produk Kapsul */
+.kartu-parfum {
+    min-width: 240px;
+    background-color: #0d0d0d;
+    border-radius: 60px 60px 30px 30px;
+    padding-bottom: 25px;
+    border: 1px solid #222;
     scroll-snap-align: center;
-    flex-shrink: 0; /* WAJIB agar tidak gepeng */
 }
 
-/* --- Grid Katalog (Halaman Katalog Lengkap) --- */
-.grid-lengkap {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.gambar-produk {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 60px 60px 0 0;
 }
 
-/* Tombol */
+.nama-produk {
+    font-family: 'Cormorant Garamond', serif;
+    color: #d4af37;
+    font-size: 1.6rem;
+    margin: 20px 0 5px;
+}
+
+.deskripsi {
+    font-size: 0.7rem;
+    color: #ffffff;
+    padding: 0 20px;
+    line-height: 1.5;
+    min-height: 45px;
+}
+
+.harga {
+    font-size: 1.4rem;
+    color: #d4af37;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Tombol WhatsApp (Gradasi) */
 .btn-wa {
     display: inline-block;
     background: linear-gradient(180deg, #fff59d 0%, #fdd835 100%);
     color: #000;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
-    margin-bottom: 20px;
 }
 
-/* --- RESPONSIVE LAPTOP (Layar Lebar) --- */
-@media (min-width: 1024px) {
-    .grid-katalog .kartu-parfum {
-        min-width: 280px; 
-        max-width: 280px;
-    }
+/* Tombol Katalog Bawah */
+.btn-katalog {
+    background: linear-gradient(180deg, #fffde7 0%, #fdd835 100%);
+    border: none;
+    padding: 15px 50px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 20px rgba(253, 216, 53, 0.3);
+}
+/* --- Tambahan Khusus Halaman Katalog --- */
+
+.btn-kembali {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: 1px solid #d4af37;
+    padding: 5px 12px;
+    border-radius: 15px;
 }
 
-/* --- RESPONSIVE HP (Layar Kecil) --- */
-@media (max-width: 600px) {
-    .grid-lengkap {
-        grid-template-columns: 1fr 1fr; /* 2 Kolom di katalog HP */
-        gap: 10px;
-        padding: 10px;
-    }
-    
-    .gambar-produk {
-        height: 180px;
-    }
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 30px;
+    padding: 0 10px;
+    flex-wrap: wrap;
+}
 
-    .nama-produk {
-        font-size: 1.1rem;
-    }
+.tab-btn {
+    background: transparent;
+    border: 1px solid #443c2b;
+    color: #888;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tab-btn.active {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    font-weight: bold;
+}
+
+.grid-lengkap {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi 2 kolom agar pendek */
+    gap: 15px;
+    padding: 0 15px;
+}
+
+/* Penyesuaian Kartu di Katalog agar pas 2 kolom */
+.grid-lengkap .kartu-parfum {
+    min-width: unset;
+    border-radius: 30px 30px 20px 20px;
+    padding-bottom: 15px;
+}
+
+.grid-lengkap .gambar-produk {
+    height: 180px; /* Lebih pendek supaya tidak scroll kejauhan */
+    border-radius: 30px 30px 0 0;
+}
+
+.grid-lengkap .nama-produk {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+}
+
+.grid-lengkap .harga {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-katalog {
+    margin: 60px 0 40px;
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+.tab-btn {
+    background: #1a1a1a; /* Hitam gelap */
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #d4af37; /* Emas saat aktif */
+    color: #000;
+}
+
+.deskripsi {
+    font-size: 0.75rem;
+    color: #bbb;
+    padding: 0 10px;
+    margin: 8px 0;
+    line-height: 1.3;
+}
+.footer-cta {
+    margin-top: 80px;
+    padding: 60px 20px;
+    background: linear-gradient(to top, #0a0a0a, #151515);
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.cta-content p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-premium-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #f2d47e 50%, #d4af37 100%);
+    color: #000;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    transition: 0.3s;
+}
+
+.btn-premium-cta:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(212, 175, 55, 0.1);
 }
