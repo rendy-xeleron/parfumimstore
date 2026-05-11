@@ -49,7 +49,7 @@ body {
     background-color: #0d0d0d;
     border-radius: 30px;
     border: 1px solid #222;
-    overflow: hidden; /* Penting: Memotong gambar agar ikut melengkung */
+    overflow: hidden; /* Memotong gambar agar ikut melengkung sesuai screenshot */
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -107,11 +107,11 @@ body {
 }
 
 .grid-katalog::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar agar rapi */
+    display: none;
 }
 
 .grid-katalog .kartu-parfum {
-    min-width: 80%; /* Kunci lebar agar tidak melar di laptop */
+    min-width: 80%; /* Agar slider pas di layar HP */
     max-width: 80%;
     scroll-snap-align: center;
     flex-shrink: 0;
@@ -120,6 +120,7 @@ body {
 /* --- Grid Katalog (Halaman Katalog Lengkap) --- */
 .grid-lengkap {
     display: grid;
+    /* Otomatis menjadi banyak kolom di laptop agar tidak kosong */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
     padding: 20px;
@@ -176,10 +177,11 @@ body {
 /* --- Penyesuaian khusus untuk Laptop (Layar Lebar) --- */
 @media (min-width: 1024px) {
     .grid-katalog .kartu-parfum {
-        min-width: 280px; /* Di Laptop, ukurannya balik ke standar */
+        min-width: 280px; 
         max-width: 280px;
     }
-    
+}
+
 /* --- RESPONSIVE UNTUK HP (Layar di bawah 600px) --- */
 @media (max-width: 600px) {
     .grid-lengkap {
@@ -189,7 +191,7 @@ body {
     }
     
      .gambar-produk {
-        height: 180px; /* Gambar lebih pendek di HP agar pas di layar */
+        height: 180px; /* Gambar lebih pendek di HP agar tidak terlalu panjang */
     }
 
     .nama-produk {
