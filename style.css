@@ -314,3 +314,52 @@ header h1.gold-text {
     transform: scale(0.95);
     box-shadow: 0 5px 10px rgba(212, 175, 55, 0.1);
 }
+/* --- Perbaikan untuk Layar Besar (Tablet & Desktop) --- */
+@media screen and (min-width: 768px) {
+    /* 1. Membatasi lebar konten agar tidak melar ke pinggir layar */
+    .isi-halaman, .footer-cta {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 2. Hero Section: Gambar lebih proporsional */
+    .gambar-hero {
+        max-width: 500px; /* Lebih besar dari mobile tapi tetap terkontrol */
+        width: 50%;
+    }
+
+    /* 3. Katalog Utama: Dari geser (scroll-x) menjadi baris */
+    .grid-katalog {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom di tablet */
+        overflow-x: visible;
+        padding: 0 50px;
+    }
+
+    /* 4. Halaman Katalog: Dari 2 kolom menjadi 4 kolom */
+    .grid-lengkap {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolom di layar besar */
+        gap: 25px;
+        padding: 0 50px;
+    }
+
+    /* 5. Penyesuaian Kartu Parfum agar seragam */
+    .grid-lengkap .gambar-produk {
+        height: 250px; /* Lebih tinggi agar terlihat premium di desktop */
+    }
+
+    .kartu-parfum {
+        min-width: unset; /* Menghapus batasan lebar mobile */
+    }
+}
+
+/* Khusus Monitor Desktop Sangat Lebar */
+@media screen and (min-width: 1200px) {
+    .grid-katalog {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk best seller */
+    }
+    .grid-lengkap {
+        grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk katalog lengkap */
+    }
+}
