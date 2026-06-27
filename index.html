@@ -36,14 +36,8 @@
     <button class="btn-katalog">Lihat katalog</button>
 </a>
 
-            <!-- Tombol untuk Membuka Chat -->
-<button id="chat-toggle-btn" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: #333; color: #fff; border: none; border-radius: 25px; cursor: pointer; z-index: 1000;">
-💬 Tanya AromaBot
-</button>
-
-<!-- Kotak Chat Tersembunyi -->
-<!-- Tombol Utama untuk Membuka Chat -->
-<button id="chat-toggle-btn" onclick="toggleChatBox()" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: #333; color: #fff; border: none; border-radius: 25px; cursor: pointer; z-index: 1000; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+          <!-- Tombol Utama untuk Membuka Chat -->
+<button id="chat-toggle-btn" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: #333; color: #fff; border: none; border-radius: 25px; cursor: pointer; z-index: 1000; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   💬 Tanya AromaBot
 </button>
 
@@ -52,7 +46,7 @@
     <!-- Bagian Atas / Header Chat -->
     <div style="background: #333; color: white; padding: 12px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
         <span>AromaBot - Ahli Parfum</span>
-        <span onclick="toggleChatBox()" style="cursor: pointer; font-size: 18px;">×</span>
+        <span id="chat-close-btn" style="cursor: pointer; font-size: 18px;">×</span>
     </div>
     
     <!-- Area Pesan Chat -->
@@ -66,18 +60,6 @@
         <button id="chat-send" style="padding: 12px 18px; background: #333; color: white; border: none; border-radius: 0 0 12px 0; cursor: pointer; font-weight: bold;">Kirim</button>
     </div>
 </div>
-
-<!-- Script Tambahan untuk Fungsi Buka Tutup -->
-<script>
-function toggleChatBox() {
-    const chatBox = document.getElementById('chat-box');
-    if (chatBox.style.display === 'none' || chatBox.style.display === '') {
-        chatBox.style.display = 'flex';
-    } else {
-        chatBox.style.display = 'none';
-    }
-}
-</script>
             
 
     <script type="module" src="script.js"></script>
