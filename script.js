@@ -53,6 +53,7 @@ tampilkanKatalog();
 // Inisialisasi API dengan Key kamu
 const ai = new GoogleGenAI({ apiKey: "AQ.Ab8RN6KGCDzBkiFlBpVAtnf5HDXqPqu8f_BxYkquO_BWfisTSg" });
 
+// Daftarkan Element HTML ke Variabel JS
 const chatToggle = document.getElementById('chat-toggle-btn');
 const chatClose = document.getElementById('chat-close-btn');
 const chatBox = document.getElementById('chat-box');
@@ -60,39 +61,39 @@ const sendBtn = document.getElementById('chat-send');
 const inputField = document.getElementById('chat-input');
 const contentEl = document.getElementById('chat-content');
 
-// Fungsi Buka Jendela Chat
+// Fungsi Menampilkan Jendela Chat
 if (chatToggle && chatBox) {
     chatToggle.addEventListener('click', () => {
         chatBox.style.display = 'flex';
     });
 }
 
-// Fungsi Tutup Jendela Chat (Tombol x)
+// Fungsi Menyembunyikan Jendela Chat (Tombol x)
 if (chatClose && chatBox) {
     chatClose.addEventListener('click', () => {
         chatBox.style.display = 'none';
     });
 }
 
-// Fungsi Mengirim Pesan ke Gemini
+// Fungsi Utama Mengirim Pesan ke Gemini AI Studio
 async function kirimPesan() {
     if (!inputField || !contentEl) return;
     
     const pesan = inputField.value.trim();
     if (!pesan) return;
 
-    // 1. Tampilkan pesan user di layar
+    // 1. Tampilkan pesan user ke layar chat
     contentEl.innerHTML += `<div style="text-align: right; margin-bottom: 10px;"><strong>Anda:</strong> ${pesan}</div>`;
     inputField.value = '';
     contentEl.scrollTop = contentEl.scrollHeight;
 
     try {
-        // 2. Beri efek "sedang mengetik..."
+        // 2. Beri efek loading "sedang mengetik..."
         const loadingId = "loading-" + Date.now();
         contentEl.innerHTML += `<div id="${loadingId}" style="margin-bottom: 10px; color: #888;"><em>AromaBot sedang berpikir...</em></div>`;
         contentEl.scrollTop = contentEl.scrollHeight;
 
-        // 3. Panggil Gemini API Studio
+        // 3. Request ke Google AI Studio
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: pesan,
@@ -101,11 +102,11 @@ async function kirimPesan() {
             }
         });
 
-        // Hapus efek loading
+        // Hapus efek loading setelah AI merespons
         const loadingEl = document.getElementById(loadingId);
         if (loadingEl) loadingEl.remove();
 
-        // 4. Tampilkan balasan chatbot
+        // 4. Tampilkan balasan dari AromaBot
         contentEl.innerHTML += `<div style="margin-bottom: 10px; color: #333;"><strong>AromaBot:</strong> ${response.text}</div>`;
         contentEl.scrollTop = contentEl.scrollHeight;
     } catch (error) {
@@ -114,9 +115,9 @@ async function kirimPesan() {
     }
 }
 
-// Pasang Event Listener ke Tombol Kirim & Tombol Enter di Keyboard
+// Pasang Event Klik ke Tombol Kirim & Tombol Enter Keyboard
 if (sendBtn) {
-    sendBtn.onclick = kirimPesan;
+    sendBtn.addEventListener('click', kirimPesan);
 }
 if (inputField) {
     inputField.addEventListener('keypress', (e) => {
