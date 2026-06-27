@@ -50,41 +50,40 @@ tampilkanKatalog();
 // BAGIAN CHATBOT AROMABOT (Taruh paling bawah)
 // ==========================================
 
-// Inisialisasi API dengan Key kamu (Ganti dengan API Key asli kamu)
+// Inisialisasi API dengan Key kamu
 const ai = new GoogleGenAI({ apiKey: "AQ.Ab8RN6KGCDzBkiFlBpVAtnf5HDXqPqu8f_BxYkquO_BWfisTSg" });
 
-// Fungsi Buka Tutup Chat (Dipasang lewat JavaScript agar aman dari error module)
 const chatToggle = document.getElementById('chat-toggle-btn');
+const chatClose = document.getElementById('chat-close-btn');
 const chatBox = document.getElementById('chat-box');
+const sendBtn = document.getElementById('chat-send');
+const inputField = document.getElementById('chat-input');
+const contentEl = document.getElementById('chat-content');
 
+// Fungsi Buka Jendela Chat
 if (chatToggle && chatBox) {
-    chatToggle.addEventListener('click', toggleChatBox);
-}
-
-function toggleChatBox() {
-    if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+    chatToggle.addEventListener('click', () => {
         chatBox.style.display = 'flex';
-    } else {
-        chatBox.style.display = 'none';
-    }
+    });
 }
 
-// Daftarkan fungsi ke window agar tombol 'x' di HTML juga bisa menutup
-window.toggleChatBox = toggleChatBox;
+// Fungsi Tutup Jendela Chat (Tombol x)
+if (chatClose && chatBox) {
+    chatClose.addEventListener('click', () => {
+        chatBox.style.display = 'none';
+    });
+}
 
 // Fungsi Mengirim Pesan ke Gemini
 async function kirimPesan() {
-    const inputEl = document.getElementById('chat-input');
-    const contentEl = document.getElementById('chat-content');
+    if (!inputField || !contentEl) return;
     
-    if (!inputEl || !contentEl) return;
-    
-    const pesan = inputEl.value.trim();
+    const pesan = inputField.value.trim();
     if (!pesan) return;
 
     // 1. Tampilkan pesan user di layar
     contentEl.innerHTML += `<div style="text-align: right; margin-bottom: 10px;"><strong>Anda:</strong> ${pesan}</div>`;
-    inputEl.value = '';
+    inputField.value = '';
     contentEl.scrollTop = contentEl.scrollHeight;
 
     try {
@@ -103,7 +102,8 @@ async function kirimPesan() {
         });
 
         // Hapus efek loading
-        document.getElementById(loadingId)?.remove();
+        const loadingEl = document.getElementById(loadingId);
+        if (loadingEl) loadingEl.remove();
 
         // 4. Tampilkan balasan chatbot
         contentEl.innerHTML += `<div style="margin-bottom: 10px; color: #333;"><strong>AromaBot:</strong> ${response.text}</div>`;
@@ -114,11 +114,10 @@ async function kirimPesan() {
     }
 }
 
-// Pasang Event Listener ke Tombol Kirim & Tombol Enter
-const sendBtn = document.getElementById('chat-send');
-const inputField = document.getElementById('chat-input');
-
-if (sendBtn) sendBtn.addEventListener('click', kirimPesan);
+// Pasang Event Listener ke Tombol Kirim & Tombol Enter di Keyboard
+if (sendBtn) {
+    sendBtn.onclick = kirimPesan;
+}
 if (inputField) {
     inputField.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') kirimPesan();
