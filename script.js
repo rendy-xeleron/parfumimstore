@@ -46,50 +46,81 @@ function tampilkanKatalog() {
 
 tampilkanKatalog();
 
-// Inisialisasi API dengan Key kamu
+// ==========================================
+// BAGIAN CHATBOT AROMABOT (Taruh paling bawah)
+// ==========================================
+
+// Inisialisasi API dengan Key kamu (Ganti dengan API Key asli kamu)
 const ai = new GoogleGenAI({ apiKey: "AQ.Ab8RN6KGCDzBkiFlBpVAtnf5HDXqPqu8f_BxYkquO_BWfisTSg" });
 
-// Logika Buka/Tutup Jendela Chat
+// Fungsi Buka Tutup Chat (Dipasang lewat JavaScript agar aman dari error module)
 const chatToggle = document.getElementById('chat-toggle-btn');
 const chatBox = document.getElementById('chat-box');
-chatToggle.addEventListener('click', () => {
-    chatBox.style.display = chatBox.style.display === 'none' ? 'flex' : 'none';
-});
 
-// Fungsi Mengirim Pesan ke Gemini Studio
+if (chatToggle && chatBox) {
+    chatToggle.addEventListener('click', toggleChatBox);
+}
+
+function toggleChatBox() {
+    if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+        chatBox.style.display = 'flex';
+    } else {
+        chatBox.style.display = 'none';
+    }
+}
+
+// Daftarkan fungsi ke window agar tombol 'x' di HTML juga bisa menutup
+window.toggleChatBox = toggleChatBox;
+
+// Fungsi Mengirim Pesan ke Gemini
 async function kirimPesan() {
     const inputEl = document.getElementById('chat-input');
     const contentEl = document.getElementById('chat-content');
-    const pesan = inputEl.value.trim();
     
+    if (!inputEl || !contentEl) return;
+    
+    const pesan = inputEl.value.trim();
     if (!pesan) return;
 
-    // Tampilkan pesan user di layar
-    contentEl.innerHTML += `<div><strong>Anda:</strong> ${pesan}</div>`;
+    // 1. Tampilkan pesan user di layar
+    contentEl.innerHTML += `<div style="text-align: right; margin-bottom: 10px;"><strong>Anda:</strong> ${pesan}</div>`;
     inputEl.value = '';
     contentEl.scrollTop = contentEl.scrollHeight;
 
     try {
-        // Panggil model sesuai yang diatur di AI Studio
+        // 2. Beri efek "sedang mengetik..."
+        const loadingId = "loading-" + Date.now();
+        contentEl.innerHTML += `<div id="${loadingId}" style="margin-bottom: 10px; color: #888;"><em>AromaBot sedang berpikir...</em></div>`;
+        contentEl.scrollTop = contentEl.scrollHeight;
+
+        // 3. Panggil Gemini API Studio
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: pesan,
             config: {
-                systemInstruction: "Kamu adalah 'AromaBot', seorang ahli parfum profesional dan asisten belanja virtual untuk toko IM Parfum Premium Store. Bantu pelanggan menemukan parfum terbaik seperti Amber Wood, SL Black, atau Smoky Oud berdasarkan preferensi mereka."
+                systemInstruction: "Kamu adalah 'AromaBot', seorang ahli parfum profesional dan asisten belanja virtual untuk toko IM Parfum Premium Store. Bantu pelanggan menemukan parfum terbaik berdasarkan preferensi mereka dengan ramah dan elegan."
             }
         });
 
-        // Tampilkan balasan chatbot
-        contentEl.innerHTML += `<div style="margin-top: 5px; color: #555;"><strong>AromaBot:</strong> ${response.text}</div><br>`;
+        // Hapus efek loading
+        document.getElementById(loadingId)?.remove();
+
+        // 4. Tampilkan balasan chatbot
+        contentEl.innerHTML += `<div style="margin-bottom: 10px; color: #333;"><strong>AromaBot:</strong> ${response.text}</div>`;
         contentEl.scrollTop = contentEl.scrollHeight;
     } catch (error) {
         console.error("Error AI Studio:", error);
-        contentEl.innerHTML += `<div style="color: red;"><strong>AromaBot:</strong> Maaf, ada gangguan koneksi.</div>`;
+        contentEl.innerHTML += `<div style="color: red; margin-bottom: 10px;"><strong>AromaBot:</strong> Maaf, ada gangguan koneksi ke Google AI Studio.</div>`;
     }
 }
 
-// Trigger tombol kirim dan tombol Enter
-document.getElementById('chat-send').addEventListener('click', kirimPesan);
-document.getElementById('chat-input').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') kirimPesan();
-});
+// Pasang Event Listener ke Tombol Kirim & Tombol Enter
+const sendBtn = document.getElementById('chat-send');
+const inputField = document.getElementById('chat-input');
+
+if (sendBtn) sendBtn.addEventListener('click', kirimPesan);
+if (inputField) {
+    inputField.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') kirimPesan();
+    });
+}
