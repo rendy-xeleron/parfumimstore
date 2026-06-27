@@ -42,14 +42,42 @@
 </button>
 
 <!-- Kotak Chat Tersembunyi -->
-<div id="chat-box" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 400px; background: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex-direction: column; z-index: 1000;">
-    <div style="background: #333; color: white; padding: 10px; border-radius: 10px 10px 0 0; font-weight: bold;">AromaBot - Ahli Parfum</div>
-    <div id="chat-content" style="flex: 1; padding: 10px; overflow-y: auto; font-size: 14px;"></div>
-    <div style="display: flex; border-top: 1px solid #ccc;">
-        <input type="text" id="chat-input" placeholder="Cari parfum manis/segar?..." style="flex: 1; padding: 10px; border: none; border-radius: 0 0 0 10px; outline: none;">
-        <button id="chat-send" style="padding: 10px; background: #333; color: white; border: none; border-radius: 0 0 10px 0; cursor: pointer;">Kirim</button>
+<!-- Tombol Utama untuk Membuka Chat -->
+<button id="chat-toggle-btn" onclick="toggleChatBox()" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: #333; color: #fff; border: none; border-radius: 25px; cursor: pointer; z-index: 1000; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  💬 Tanya AromaBot
+</button>
+
+<!-- Jendela Kotak Chat (Awalnya Tersembunyi) -->
+<div id="chat-box" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 420px; background: white; border: 1px solid #ccc; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); flex-direction: column; z-index: 1000; font-family: sans-serif;">
+    <!-- Bagian Atas / Header Chat -->
+    <div style="background: #333; color: white; padding: 12px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+        <span>AromaBot - Ahli Parfum</span>
+        <span onclick="toggleChatBox()" style="cursor: pointer; font-size: 18px;">×</span>
+    </div>
+    
+    <!-- Area Pesan Chat -->
+    <div id="chat-content" style="flex: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #f9f9f9;">
+        <div style="color: #555; margin-bottom: 10px;"><em><strong>AromaBot:</strong> Halo! Ada yang bisa aku bantu untuk memilih parfum premium hari ini? ✨</em></div>
+    </div>
+    
+    <!-- Bagian Input Ketik Pesan -->
+    <div style="display: flex; border-top: 1px solid #ddd;">
+        <input type="text" id="chat-input" placeholder="Cari parfum manis atau segar?..." style="flex: 1; padding: 12px; border: none; border-radius: 0 0 0 12px; outline: none; font-size: 14px;">
+        <button id="chat-send" style="padding: 12px 18px; background: #333; color: white; border: none; border-radius: 0 0 12px 0; cursor: pointer; font-weight: bold;">Kirim</button>
     </div>
 </div>
+
+<!-- Script Tambahan untuk Fungsi Buka Tutup -->
+<script>
+function toggleChatBox() {
+    const chatBox = document.getElementById('chat-box');
+    if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+        chatBox.style.display = 'flex';
+    } else {
+        chatBox.style.display = 'none';
+    }
+}
+</script>
             
 
     <script type="module" src="script.js"></script>
