@@ -42,3 +42,38 @@ function tampilkanKatalog() {
 }
 
 tampilkanKatalog();
+
+const API_KEY = "AQ.Ab8RN6K8cigNPRYqJwMrpw2MBN4yAUTDur66OiHnNpb4_wKKhw";
+const chatWindow = document.getElementById('chat-window');
+const chatInput = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
+
+async function getGeminiResponse(userPrompt) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    
+    const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            contents: [{ parts: [{ text: userPrompt }] }],
+            systemInstruction: { parts: [{ text: "Kamu adalah asisten Parfum IM Store. Jawab dengan singkat dan ramah." }] }
+        })
+    });
+
+    const data = await response.json();
+    return data.candidates[0].content.parts[0].text;
+}
+
+sendBtn.onclick = async () => {
+    const text = chatInput.value;
+    if (!text) return;
+
+    // Tampilkan pesan user
+    chatWindow.innerHTML += `<div class="user-msg">${text}</div>`;
+    chatInput.value = "";
+
+    // Ambil respon dari AI
+    const botReply = await getGeminiResponse(text);
+    chatWindow.innerHTML += `<div class="bot-msg">${botReply}</div>`;
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+};
