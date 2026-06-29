@@ -321,6 +321,18 @@ header h1.gold-text {
     .grid-lengkap .gambar-produk {
         height: 250px;
     }
+
+   #chat-container {
+    position: fixed; bottom: 20px; right: 20px; width: 300px;
+    background: white; border: 1px solid #ccc; border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif;
+}
+#chat-window { height: 300px; overflow-y: auto; padding: 10px; border-bottom: 1px solid #eee; }
+#chat-input-area { display: flex; padding: 10px; }
+#chat-input { flex: 1; padding: 5px; border: 1px solid #ddd; border-radius: 5px; }
+#send-btn { margin-left: 5px; padding: 5px 10px; background: #e91e63; color: white; border: none; cursor: pointer; border-radius: 5px; }
+.bot-msg { color: #e91e63; margin-bottom: 10px; }
+.user-msg { color: #333; text-align: right; margin-bottom: 10px; }
 }
 
 /* Monitor Desktop Sangat Lebar */
