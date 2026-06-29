@@ -43,7 +43,7 @@ function tampilkanKatalog() {
 
 tampilkanKatalog();
 
-const API_KEY = "AQ.Ab8RN6K8cigNPRYqJwMrpw2MBN4yAUTDur66OiHnNpb4_wKKhw";
+const API_KEY = "AQ.Ab8RN6IvBF1meoQl8yKub8k1GxRUj22kuywfraz3Bs2aZRb2JA";
 const chatWindow = document.getElementById('chat-window');
 const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
