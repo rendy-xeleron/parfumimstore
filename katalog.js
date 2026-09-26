@@ -19,7 +19,7 @@ const koleksiSemua = [
     { nama: "Explorer", kategori: "Pria", harga: "Rp. 100.000", gambar: "img/Explorer.png", deskripsi: "Woody maskulin modern dan elegan. Cocok untuk pria aktif" },
     { nama: "Intense", kategori: "Unisex", harga: "Rp. 110.000", gambar: "img/Intense.png", deskripsi: "Kayu manis hangat dengan kesan dalam. Cocok untuk malam & santai" },
     { nama: "Amber Wood", kategori: "Unisex", harga: "Rp. 120.000", gambar: "img/Amber Wood.png", deskripsi: "Oriental kuat tapi tetap halus. Cocok untuk yang suka wangi elegan" },
-    { nama: "LV Smoky Oud", kategori: "Unisex", harga: "Rp. 100.000", gambar: "img/Smoky Oud.png", deskripsi: "Kayu bakar yang bold dan mewah. Cocok untuk yang suka wangi strong" },
+    { nama: "LV Smoky Oud", kategori: "Unisex", harga: "Rp. 120.000", gambar: "img/Smoky Oud.png", deskripsi: "Kayu bakar yang bold dan mewah. Cocok untuk yang suka wangi strong" },
     { nama: "LV NYC", kategori: "Unisex", harga: "Rp. 120.000", gambar: "img/NYC.png", deskripsi: "Woody smoky yang lebih lembut dan classy. Cocok untuk daily elegan" },
     { nama: "Tea Aromatic", kategori: "Unisex", harga: "Rp. 110.000", gambar: "img/Tea.png", deskripsi: "Aroma teh yang fresh dan menenangkan. Cocok untuk wangi clean & unik" }
 ];

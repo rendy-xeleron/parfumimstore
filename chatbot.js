@@ -30,7 +30,7 @@
     { n: "Explorer", g: "P", h: 100000, img: "img/Explorer.png", a: ["woody"], o: ["harian", "spesial"], d: "Woody maskulin modern dan elegan" },
     { n: "Intense", g: "U", h: 110000, img: "img/Intense.png", a: ["woody", "manis"], o: ["malam"], d: "Kayu manis hangat dengan kesan dalam" },
     { n: "Amber Wood", g: "U", h: 120000, img: "img/Amber Wood.png", a: ["woody"], o: ["spesial", "malam"], d: "Oriental kuat tapi tetap halus" },
-    { n: "LV Smoky Oud", g: "U", h: 100000, img: "img/Smoky Oud.png", a: ["woody"], o: ["spesial", "malam"], d: "Kayu bakar yang bold dan mewah" },
+    { n: "LV Smoky Oud", g: "U", h: 120000, img: "img/Smoky Oud.png", a: ["woody"], o: ["spesial", "malam"], d: "Kayu bakar yang bold dan mewah" },
     { n: "LV NYC", g: "U", h: 120000, img: "img/NYC.png", a: ["woody"], o: ["harian", "spesial"], d: "Woody smoky yang lebih lembut dan classy" },
     { n: "Tea Aromatic", g: "U", h: 110000, img: "img/Tea.png", a: ["fresh"], o: ["harian"], d: "Aroma teh yang fresh dan menenangkan" }
   ];
@@ -179,7 +179,7 @@
 
   // ---------- Jawaban umum ----------
   async function jawabHarga() {
-    await pesanBot("Harga IM Parfum mulai <b>Rp 100.000</b> sampai <b>Rp 120.000</b>, tergantung aromanya.<br><br>• Rp 100.000: Lo Vely, Chiffon Pink, Scandal, Flora Pastellia, Orchid, Bergamot Black Men, XXXX Man, Light Man, Explorer, LV Smoky Oud<br>• Rp 110.000: Berry for Her, Swift Rose, Purple Platinum, VIP Black, Blue Hill, Intense, Tea Aromatic<br>• Rp 120.000: SL Black, CH Sexy Men, Amber Wood, LV NYC");
+    await pesanBot("Harga IM Parfum mulai <b>Rp 100.000</b> sampai <b>Rp 120.000</b>, tergantung aromanya.<br><br>• Rp 100.000: Lo Vely, Chiffon Pink, Scandal, Flora Pastellia, Orchid, Bergamot Black Men, XXXX Man, Light Man, Explorer<br>• Rp 110.000: Berry for Her, Swift Rose, Purple Platinum, VIP Black, Blue Hill, Intense, Tea Aromatic<br>• Rp 120.000: SL Black, CH Sexy Men, Amber Wood, LV Smoky Oud, LV NYC");
     menuUtama();
   }
   async function jawabCaraPesan() {
