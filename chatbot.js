@@ -7,6 +7,13 @@
 (function () {
   const NOMOR_WA = "6287749397910";
 
+  // ====== PENGATURAN AI ======
+  // Tempel URL Cloudflare Worker di sini, contoh:
+  // const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev/";
+  // Kalau dikosongkan (""), chatbot tetap jalan tanpa AI.
+  const AI_URL = "";
+  // ===========================
+
   // Data parfum + label untuk rekomendasi
   // g: P = Pria, W = Wanita, U = Unisex
   // a: fresh, manis, floral, woody
@@ -50,14 +57,14 @@
     <section id="imc-panel" aria-label="Konsultasi Aroma IM Parfum" hidden>
       <header id="imc-head">
         <div class="imc-logo">IM</div>
-        <div class="imc-title"><strong>Konsultasi Aroma</strong><span>Asisten otomatis 24 jam</span></div>
+        <div class="imc-title"><strong>Konsultasi Aroma</strong><span>${AI_URL ? "Asisten AI 24 jam" : "Asisten otomatis 24 jam"}</span></div>
         <button id="imc-reset" title="Mulai ulang" aria-label="Mulai ulang">↺</button>
         <button id="imc-close" title="Tutup" aria-label="Tutup">×</button>
       </header>
       <div id="imc-body" aria-live="polite"></div>
       <div id="imc-chips"></div>
       <form id="imc-form" autocomplete="off">
-        <input id="imc-input" type="text" placeholder="Tulis pertanyaan..." aria-label="Tulis pertanyaan">
+        <input id="imc-input" type="text" placeholder="${AI_URL ? "Tanya apa saja soal parfum..." : "Tulis pertanyaan..."}" aria-label="Tulis pertanyaan">
         <button type="submit" aria-label="Kirim">➤</button>
       </form>
     </section>`;
@@ -192,10 +199,64 @@
     menuUtama();
   }
 
+  // ---------- AI ----------
+  const riwayatAI = [];
+  function formatAI(teks) {
+    return esc(teks)
+      .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+      .replace(/^\s*[-*•]\s+/gm, "• ")
+      .replace(/\n/g, "<br>");
+  }
+  function produkDisebut(teks) {
+    const t = " " + norm(teks) + " ";
+    return PARFUM.filter((p) => t.includes(norm(p.n))).slice(0, 3);
+  }
+  async function tanyaAI(teks) {
+    riwayatAI.push({ role: "user", text: teks });
+    const ketik = document.createElement("div");
+    ketik.className = "imc-msg imc-bot imc-typing";
+    ketik.innerHTML = "<span></span><span></span><span></span>";
+    body.appendChild(ketik); scrollBawah();
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 20000);
+      const res = await fetch(AI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: riwayatAI.slice(-12),
+          produk: PARFUM.map(({ n, g, h, d }) => ({ n, g, h, d }))
+        }),
+        signal: ctrl.signal
+      });
+      clearTimeout(timer);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.reply) throw new Error(data.error || "HTTP " + res.status);
+      ketik.classList.remove("imc-typing");
+      ketik.innerHTML = formatAI(data.reply);
+      riwayatAI.push({ role: "model", text: data.reply });
+      const kartuList = produkDisebut(data.reply);
+      if (kartuList.length) await pesanBot(kartuList.map(kartu).join(""), 250);
+      scrollBawah();
+      return true;
+    } catch (e) {
+      console.warn("AI tidak tersedia:", e.message);
+      ketik.remove();
+      riwayatAI.pop();
+      return false;
+    }
+  }
+
   const norm = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g, " ");
   async function jawabTeks(teks) {
     const t = " " + norm(teks) + " ";
     const ada = (...k) => k.some((x) => t.includes(x));
+    const jumlahKata = t.trim().split(" ").filter(Boolean).length;
+
+    // Pertanyaan panjang atau lanjutan obrolan AI -> langsung ke AI
+    if (AI_URL && (jumlahKata > 4 || riwayatAI.length)) {
+      if (await tanyaAI(teks)) return menuUtama();
+    }
 
     // Cari nama parfum di pertanyaan
     const cocok = PARFUM.filter((p) => {
@@ -238,6 +299,7 @@
       await pesanBot("Sama-sama. Kalau sudah pilih aromanya, tinggal tekan tombol Pesan ya.");
       return menuUtama();
     }
+    if (AI_URL && !riwayatAI.length && (await tanyaAI(teks))) return menuUtama();
     await pesanBot("Maaf, aku belum bisa jawab itu. Pertanyaanmu bisa langsung ditanyakan ke admin ya.");
     return jawabAdmin();
   }
@@ -258,7 +320,7 @@
   fab.onclick = () => (panel.hidden ? buka() : tutup());
   tip.onclick = buka;
   $("imc-close").onclick = tutup;
-  $("imc-reset").onclick = () => { body.innerHTML = ""; chips.innerHTML = ""; jawaban = {}; sudahMulai = false; buka(); };
+  $("imc-reset").onclick = () => { body.innerHTML = ""; chips.innerHTML = ""; jawaban = {}; riwayatAI.length = 0; sudahMulai = false; buka(); };
   $("imc-form").onsubmit = (e) => {
     e.preventDefault();
     const inp = $("imc-input"); const v = inp.value.trim();
