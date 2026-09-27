@@ -5,19 +5,19 @@ const daftarParfum = [
     {
         nama: "Amber Wood",
         deskripsi: "Oriental soft tapi tetap strong. Kesan: mahal & luxury",
-        harga: "Rp. 120.000",
+        harga: "Rp. 100.000",
         gambar: "img/Amber Wood.png"
     },
     {
         nama: "SL Black",
         deskripsi: "Manis - floral. Kesan: sexy, dewasa, night vibes",
-        harga: "Rp. 120.000",
+        harga: "Rp. 100.000",
         gambar: "img/SL Black.png"
     },
     {
         nama: "Smoky Oud",
         deskripsi: "Aroma kayu bakar (oud kuat). Kesan: mahal & bold",
-        harga: "Rp. 120.000",
+        harga: "Rp. 100.000",
         gambar: "img/Smoky Oud.png"
     }
 ];
