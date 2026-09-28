@@ -11,7 +11,7 @@
   // Tempel URL Cloudflare Worker di sini, contoh:
   // const AI_URL = "https://im-parfum-ai.namakamu.workers.dev";
   // Kalau dikosongkan (""), chatbot tetap jalan tanpa AI.
-  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev/";
+  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev";
   // ===========================
 
   // Data parfum + label untuk rekomendasi
@@ -186,7 +186,7 @@
 
   // ---------- Jawaban umum ----------
   async function jawabHarga() {
-    await pesanBot("Semua parfum IM Parfum harganya sama: <b>Rp 100.000</b> untuk semua aroma (21 pilihan pria, wanita, dan unisex).");
+    await pesanBot("Semua parfum IM Parfum harganya sama: <b>Rp 100.000</b> untuk semua aroma (21 pilihan pria, wanita, dan unisex).<br><br>Beli lebih dari 1 botol dapat <b>diskon 10%</b>.");
     menuUtama();
   }
   async function jawabCaraPesan() {
