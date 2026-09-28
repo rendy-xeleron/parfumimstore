@@ -9,9 +9,9 @@
 
   // ====== PENGATURAN AI ======
   // Tempel URL Cloudflare Worker di sini, contoh:
-  // const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev/";
+  // const AI_URL = "https://im-parfum-ai.namakamu.workers.dev";
   // Kalau dikosongkan (""), chatbot tetap jalan tanpa AI.
-  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev/";
+  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev";
   // ===========================
 
   // Data parfum + label untuk rekomendasi
@@ -19,27 +19,27 @@
   // a: fresh, manis, floral, woody
   // o: harian, malam, spesial
   const PARFUM = [
-    { n: "SL Black", g: "W", h: 120000, img: "img/SL Black.png", a: ["manis", "floral"], o: ["malam", "spesial"], d: "Manis floral elegan dengan kesan hangat" },
+    { n: "SL Black", g: "W", h: 100000, img: "img/SL Black.png", a: ["manis", "floral"], o: ["malam", "spesial"], d: "Manis floral elegan dengan kesan hangat" },
     { n: "Lo Vely", g: "W", h: 100000, img: "img/Lo Vely.png", a: ["floral", "fresh"], o: ["harian"], d: "Floral lembut, feminin, fresh dan ringan" },
     { n: "Chiffon Pink", g: "W", h: 100000, img: "img/Chiffon Pink.png", a: ["manis"], o: ["harian"], d: "Manis seperti kue, girly dan lembut" },
-    { n: "Berry for Her", g: "W", h: 110000, img: "img/Berry.png", a: ["fresh", "manis"], o: ["harian", "malam"], d: "Berry segar yang agak strong dan standout" },
-    { n: "Swift Rose", g: "W", h: 110000, img: "img/Swift Rose.png", a: ["floral"], o: ["spesial", "malam"], d: "Aroma bunga yang cukup strong dan elegan" },
+    { n: "Berry for Her", g: "W", h: 100000, img: "img/Berry.png", a: ["fresh", "manis"], o: ["harian", "malam"], d: "Berry segar yang agak strong dan standout" },
+    { n: "Swift Rose", g: "W", h: 100000, img: "img/Swift Rose.png", a: ["floral"], o: ["spesial", "malam"], d: "Aroma bunga yang cukup strong dan elegan" },
     { n: "Scandal", g: "W", h: 100000, img: "img/Scandal.png", a: ["manis"], o: ["malam", "spesial"], d: "Manis creamy yang kuat dan menggoda" },
     { n: "Flora Pastellia", g: "W", h: 100000, img: "img/Flora Pastellia.png", a: ["floral"], o: ["harian"], d: "Floral soft yang halus dan mewah" },
     { n: "Orchid", g: "W", h: 100000, img: "img/Orchid.png", a: ["floral", "fresh"], o: ["harian"], d: "Floral dengan sentuhan asam segar yang unik" },
-    { n: "Purple Platinum", g: "W", h: 110000, img: "img/Purple.png", a: ["fresh", "floral"], o: ["harian", "spesial"], d: "Wangi feminin clean dan classy" },
+    { n: "Purple Platinum", g: "W", h: 100000, img: "img/Purple.png", a: ["fresh", "floral"], o: ["harian", "spesial"], d: "Wangi feminin clean dan classy" },
     { n: "Bergamot Black Men", g: "P", h: 100000, img: "img/Bergamot.png", a: ["fresh"], o: ["harian"], d: "Citrus segar yang maskulin dan ringan" },
     { n: "XXXX Man", g: "P", h: 100000, img: "img/XXXX.png", a: ["fresh"], o: ["harian"], d: "Fruity fresh tanpa manis berlebihan" },
-    { n: "CH Sexy Men", g: "P", h: 120000, img: "img/CH.png", a: ["manis"], o: ["malam", "spesial"], d: "Manis hangat yang maskulin dan menarik" },
+    { n: "CH Sexy Men", g: "P", h: 100000, img: "img/CH.png", a: ["manis"], o: ["malam", "spesial"], d: "Manis hangat yang maskulin dan menarik" },
     { n: "Light Man", g: "P", h: 100000, img: "img/Light.png", a: ["fresh"], o: ["harian"], d: "Fresh clean yang ringan dan adem" },
-    { n: "VIP Black", g: "P", h: 110000, img: "img/VIP.png", a: ["manis", "woody"], o: ["spesial", "malam"], d: "Manis gelap yang elegan dan kuat" },
-    { n: "Blue Hill", g: "P", h: 110000, img: "img/Blue.png", a: ["fresh"], o: ["harian"], d: "Fresh aquatic yang bersih dan maskulin" },
+    { n: "VIP Black", g: "P", h: 100000, img: "img/VIP.png", a: ["manis", "woody"], o: ["spesial", "malam"], d: "Manis gelap yang elegan dan kuat" },
+    { n: "Blue Hill", g: "P", h: 100000, img: "img/Blue.png", a: ["fresh"], o: ["harian"], d: "Fresh aquatic yang bersih dan maskulin" },
     { n: "Explorer", g: "P", h: 100000, img: "img/Explorer.png", a: ["woody"], o: ["harian", "spesial"], d: "Woody maskulin modern dan elegan" },
-    { n: "Intense", g: "U", h: 110000, img: "img/Intense.png", a: ["woody", "manis"], o: ["malam"], d: "Kayu manis hangat dengan kesan dalam" },
-    { n: "Amber Wood", g: "U", h: 120000, img: "img/Amber Wood.png", a: ["woody"], o: ["spesial", "malam"], d: "Oriental kuat tapi tetap halus" },
-    { n: "LV Smoky Oud", g: "U", h: 120000, img: "img/Smoky Oud.png", a: ["woody"], o: ["spesial", "malam"], d: "Kayu bakar yang bold dan mewah" },
-    { n: "LV NYC", g: "U", h: 120000, img: "img/NYC.png", a: ["woody"], o: ["harian", "spesial"], d: "Woody smoky yang lebih lembut dan classy" },
-    { n: "Tea Aromatic", g: "U", h: 110000, img: "img/Tea.png", a: ["fresh"], o: ["harian"], d: "Aroma teh yang fresh dan menenangkan" }
+    { n: "Intense", g: "U", h: 100000, img: "img/Intense.png", a: ["woody", "manis"], o: ["malam"], d: "Kayu manis hangat dengan kesan dalam" },
+    { n: "Amber Wood", g: "U", h: 100000, img: "img/Amber Wood.png", a: ["woody"], o: ["spesial", "malam"], d: "Oriental kuat tapi tetap halus" },
+    { n: "LV Smoky Oud", g: "U", h: 100000, img: "img/Smoky Oud.png", a: ["woody"], o: ["spesial", "malam"], d: "Kayu bakar yang bold dan mewah" },
+    { n: "LV NYC", g: "U", h: 100000, img: "img/NYC.png", a: ["woody"], o: ["harian", "spesial"], d: "Woody smoky yang lebih lembut dan classy" },
+    { n: "Tea Aromatic", g: "U", h: 100000, img: "img/Tea.png", a: ["fresh"], o: ["harian"], d: "Aroma teh yang fresh dan menenangkan" }
   ];
 
   const rupiah = (x) => "Rp " + x.toLocaleString("id-ID");
@@ -122,7 +122,7 @@
   // ---------- Alur konsultasi ----------
   async function mulaiKonsultasi() {
     jawaban = {};
-    await pesanBot("Siap, aku bantu carikan aroma yang pas. Cuma 4 pertanyaan singkat.<br><br><b>1/4</b> Parfumnya untuk siapa?");
+    await pesanBot("Siap, aku bantu carikan aroma yang pas. Cuma 3 pertanyaan singkat.<br><br><b>1/3</b> Parfumnya untuk siapa?");
     setChips([
       ["Untuk pria", () => { jawaban.g = "P"; q2(); }],
       ["Untuk wanita", () => { jawaban.g = "W"; q2(); }],
@@ -130,7 +130,7 @@
     ]);
   }
   async function q2() {
-    await pesanBot("<b>2/4</b> Suka wangi yang seperti apa?");
+    await pesanBot("<b>2/3</b> Suka wangi yang seperti apa?");
     setChips([
       ["Segar & ringan", () => { jawaban.a = "fresh"; q3(); }],
       ["Manis", () => { jawaban.a = "manis"; q3(); }],
@@ -139,11 +139,11 @@
     ]);
   }
   async function q3() {
-    await pesanBot("<b>3/4</b> Paling sering dipakai untuk apa?");
+    await pesanBot("<b>3/3</b> Paling sering dipakai untuk apa?");
     setChips([
-      ["Harian & kerja", () => { jawaban.o = "harian"; q4(); }],
-      ["Malam & kencan", () => { jawaban.o = "malam"; q4(); }],
-      ["Acara spesial", () => { jawaban.o = "spesial"; q4(); }]
+      ["Harian & kerja", () => { jawaban.o = "harian"; jawaban.b = 999999; hasil(); }],
+      ["Malam & kencan", () => { jawaban.o = "malam"; jawaban.b = 999999; hasil(); }],
+      ["Acara spesial", () => { jawaban.o = "spesial"; jawaban.b = 999999; hasil(); }]
     ]);
   }
   async function q4() {
@@ -186,7 +186,7 @@
 
   // ---------- Jawaban umum ----------
   async function jawabHarga() {
-    await pesanBot("Harga IM Parfum mulai <b>Rp 100.000</b> sampai <b>Rp 120.000</b>, tergantung aromanya.<br><br>• Rp 100.000: Lo Vely, Chiffon Pink, Scandal, Flora Pastellia, Orchid, Bergamot Black Men, XXXX Man, Light Man, Explorer<br>• Rp 110.000: Berry for Her, Swift Rose, Purple Platinum, VIP Black, Blue Hill, Intense, Tea Aromatic<br>• Rp 120.000: SL Black, CH Sexy Men, Amber Wood, LV Smoky Oud, LV NYC");
+    await pesanBot("Semua parfum IM Parfum harganya sama: <b>Rp 100.000</b> untuk semua aroma (21 pilihan pria, wanita, dan unisex).");
     menuUtama();
   }
   async function jawabCaraPesan() {
