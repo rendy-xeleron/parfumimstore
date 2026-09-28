@@ -205,7 +205,13 @@
     return esc(teks)
       .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
       .replace(/^\s*[-*•]\s+/gm, "• ")
-      .replace(/\n/g, "<br>");
+      .replace(/\n/g, "<br>")
+      .replace(/https?:\/\/[^\s<]+/g, (u) => {
+        const m = u.match(/[.,;:!?)]+$/); // tanda baca di ujung bukan bagian link
+        const akhir = m ? m[0] : "";
+        const url = akhir ? u.slice(0, -akhir.length) : u;
+        return `<a href="${url}" target="_blank" rel="noopener" style="color:#d4af37;text-decoration:underline;word-break:break-all">${url}</a>${akhir}`;
+      });
   }
   function produkDisebut(teks) {
     const t = " " + norm(teks) + " ";
