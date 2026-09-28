@@ -11,7 +11,7 @@
   // Tempel URL Cloudflare Worker di sini, contoh:
   // const AI_URL = "https://im-parfum-ai.namakamu.workers.dev";
   // Kalau dikosongkan (""), chatbot tetap jalan tanpa AI.
-  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev";
+  const AI_URL = "https://imparfumstore-ai.rendy-xlr.workers.dev/";
   // ===========================
 
   // Data parfum + label untuk rekomendasi
